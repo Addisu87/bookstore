@@ -1,10 +1,11 @@
 import React from 'react';
 
-const AddNewBook = () => (
-  <div>
+const BookInput = () => (
+  <form>
     <input type="text" placeholder="Book title" />
     <input type="text" placeholder="author" />
-  </div>
+    <button type="submit">ADD BOOK</button>
+  </form>
 );
 
-export default AddNewBook;
+export default BookInput;

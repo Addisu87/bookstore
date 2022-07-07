@@ -1,11 +1,11 @@
 import React from 'react';
-import AddNewBook from '../components/AddNewBook';
-import Book from '../components/Book';
+import BookInput from '../components/BookInput';
+import BooksList from '../components/BooksList';
 
 const BooksPage = () => {
   <>
-    <Book />
-    <AddNewBook />
+    <BooksList />
+    <BookInput />
   </>;
 };
 
