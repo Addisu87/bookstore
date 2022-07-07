@@ -1,56 +1,47 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Bookstore
 
-# Project Name
-
-> Description the project.
-
+> The Bookstore is a website similar to the "Awesome Books" website. It is an MVP version of it that allows you to display a list of books, add a book, remove a selected book.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- CSS
+- Javascript
+- Git & Github
+- React
 
 ## Live Demo (if available)
 
 [Live Demo Link](https://livedemo.com)
 
-
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
+- Run `Git Clone + 'git@github.com:Addisu87/bookstore.git'`
+
 ### Prerequisites
+
+- Any browser (e.g. Chrome, Firefox);
+- Any code editor (e.g. vscode, Atom)
 
 ### Setup
 
 ### Install
 
+- npm install
+
 ### Usage
 
-### Run tests
-
-### Deployment
-
-
+- npm start
 
 ## Authors
 
-👤 **Author1**
+👤 **Addisu Haile**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [Addisu87](https://github.com/Addisu87)
+- Twitter: [@AddisuTedla](https://twitter.com/AddisuTedla)
+- LinkedIn: [Addisu Tedla](https://www.linkedin.com/in/addisu-tedla-8b4a10143/)
 
 ## 🤝 Contributing
 
