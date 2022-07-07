@@ -1,6 +1,6 @@
 # Bookstore
 
-> The Bookstore is a website similar to the "Awesome Books" website. It is an MVP version of it that allows you to display a list of books, add a book, remove a selected book.
+> The Bookstore is a website similar to the "Awesome Books" website. It allows you to display a list of books, add a book, and remove a selected book.
 
 ## Built With
 
