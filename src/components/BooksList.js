@@ -4,7 +4,8 @@ import Book from './Book';
 const BooksList = () => {
   <>
     <h1>Books</h1>
-    <Book title="Title" author="Author" />;
+    <Book title="Title" author="Author" />
+    ;
   </>;
 };
 
