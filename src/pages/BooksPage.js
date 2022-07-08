@@ -1,12 +1,12 @@
 import React from 'react';
-import BookInput from '../components/BookInput';
+import AddBook from '../components/AddBook';
 import BooksList from '../components/BooksList';
 
-const BooksPage = () => {
-  <>
+const BooksPage = () => (
+  <div className="booksWrapper">
     <BooksList />
-    <BookInput />
-  </>;
-};
+    <AddBook />
+  </div>
+);
 
 export default BooksPage;
