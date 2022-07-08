@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Categories from './components/Categories';
 import Navbar from './components/Navbar';
-import BooksPage from './pages/BooksPage';
-import CategoriesPage from './pages/CategoriesPage';
+import Books from './components/Books';
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
       <header className="App-header">
         <Navbar />
         <Routes>
-          <Route path="/" element={<BooksPage />} />
-          <Route path="/categories" element={<CategoriesPage />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/categories" element={<Categories />} />
         </Routes>
       </header>
     </div>

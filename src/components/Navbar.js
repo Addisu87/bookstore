@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => (
@@ -17,9 +16,8 @@ const Navbar = () => (
       <li>
         <Link to="/categories">CATEGORIES</Link>
       </li>
+      <FaUser className="userPic" type="icon" />
     </ul>
-
-    <FaUser className="userPic" type="icon" />
   </nav>
 );
 
