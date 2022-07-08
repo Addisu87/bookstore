@@ -6,13 +6,15 @@ import CategoriesPage from './pages/CategoriesPage';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<BooksPage />} />
-        <Route path="/categories" element={<CategoriesPage />} />
-      </Routes>
-    </>
+    <div className="App">
+      <header className="App-header">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<BooksPage />} />
+          <Route path="/categories" element={<CategoriesPage />} />
+        </Routes>
+      </header>
+    </div>
   );
 }
 
