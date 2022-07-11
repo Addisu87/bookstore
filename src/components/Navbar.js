@@ -1,24 +1,39 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 
-const Navbar = () => (
-  <nav className="navbar">
-    <h1>
-      <Link to="/" className="logo">
-        Bookstore CMS
-      </Link>
-    </h1>
-    <ul>
-      <li>
-        <Link to="/books">BOOKS</Link>
-      </li>
-      <li>
-        <Link to="/categories">CATEGORIES</Link>
-      </li>
-      <FaUser className="userPic" type="icon" />
-    </ul>
-  </nav>
-);
+const Navbar = () => {
+  const links = [
+    {
+      id: 1,
+      path: '/books',
+      text: 'BOOKS',
+    },
+    {
+      id: 2,
+      path: '/categories',
+      text: 'CATEGORIES',
+    },
+  ];
+
+  return (
+    <nav className="navbar">
+      <h2 className="logo">
+        <a href="/">Bookstore CMS</a>
+      </h2>
+
+      <ul className="nav-links">
+        {links.map((link) => (
+          <li className="nav-link" key={link.id}>
+            <NavLink to={link.path} exact="true">
+              {link.text}
+            </NavLink>
+          </li>
+        ))}
+        <FaUser className="userPic" type="icon" />
+      </ul>
+    </nav>
+  );
+};
 
 export default Navbar;
