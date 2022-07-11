@@ -7,7 +7,7 @@ import Books from './components/Books';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="panel-bg">
         <Navbar />
         <Routes>
           <Route path="/books" element={<Books />} />

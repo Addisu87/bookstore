@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const links = [
@@ -17,20 +18,22 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="navbar">
-      <h2 className="logo">
+    <nav className={styles.navbar}>
+      <h2 className={styles.logo}>
         <a href="/">Bookstore CMS</a>
       </h2>
 
-      <ul className="nav-links">
+      <ul className={styles.navLinks}>
         {links.map((link) => (
-          <li className="nav-link" key={link.id}>
+          <li className={styles.navLink} key={link.id}>
             <NavLink to={link.path} exact="true">
               {link.text}
             </NavLink>
           </li>
         ))}
-        <FaUser className="userPic" type="icon" />
+        <div className={styles.userOval}>
+          <FaUser className={styles.userPic} type="icon" />
+        </div>
       </ul>
     </nav>
   );
