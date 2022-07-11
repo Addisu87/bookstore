@@ -9,7 +9,7 @@ const BooksList = (props) => {
 
 BooksList.propTypes = {
   title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired
+  author: PropTypes.string.isRequired,
 };
 
 export default BooksList;
