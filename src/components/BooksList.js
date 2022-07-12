@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-import { createSelector } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
-import Book from './Book';
+import { useDispatch, useSelector } from 'react-redux';
 import AddBook from './AddBook';
 import { loadBook } from '../redux/books/books';
+import Book from './Book';
 
 const BooksList = () => {
-  const books = createSelector((state) => state.books);
+  const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,14 +13,14 @@ const BooksList = () => {
   }, []);
 
   return (
-    <div className="booksWrapper">
+    <div className="bookWrapper">
       {books.map((book) => (
         <Book
           key={book.id}
           id={book.id}
+          category={book.category}
           title={book.title}
           author={book.author}
-          category={book.category}
         />
       ))}
 

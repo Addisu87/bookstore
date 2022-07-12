@@ -1,20 +1,19 @@
-import { createSelector } from '@reduxjs/toolkit';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { checkStatus } from '../redux/categories/categories';
 
 const Categories = () => {
-  const status = createSelector((state) => state.categories);
+  const status = useSelector((state) => state.categories);
 
   const dispatch = useDispatch();
 
-  const handleStatus = () => {
-    dispatch(checkStatus());
-  };
-
   return (
     <div className="categories">
-      <button className="btn-category" type="button" onClick={handleStatus}>
+      <button
+        className="btn-category"
+        type="button"
+        onClick={() => dispatch(checkStatus('Under construction'))}
+      >
         Check status
       </button>
 

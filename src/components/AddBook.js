@@ -7,7 +7,6 @@ const AddBook = () => {
   const [inputText, setInputText] = useState({
     title: '',
     author: '',
-    category: 'default',
   });
 
   const dispatch = useDispatch();
@@ -19,13 +18,14 @@ const AddBook = () => {
       id: uuidv4(),
       title: '',
       author: '',
+      category: 'default',
     };
     dispatch(addBook(newBook));
 
     setInputText({ title: '', author: '' });
   };
 
-  const onChange = (e) => {
+  const handleChange = (e) => {
     setInputText({
       ...inputText,
       [e.target.name]: e.target.value,
@@ -40,7 +40,7 @@ const AddBook = () => {
         type="text"
         placeholder="Book title"
         value={inputText.title}
-        onChange={onChange}
+        onChange={handleChange}
         required
       />
       <input
@@ -49,7 +49,7 @@ const AddBook = () => {
         type="text"
         placeholder="author"
         value={inputText.author}
-        onChange={onChange}
+        onChange={handleChange}
         required
       />
       <button type="submit">ADD BOOK</button>

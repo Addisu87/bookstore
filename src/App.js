@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Categories from './components/Categories';
+import Categories from './pages/Categories';
 import Navbar from './components/Navbar';
 import BooksList from './components/BooksList';
+import NotMatch from './pages/NotMatch';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/books" element={<BooksList />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="*" element={<NotMatch />} />
         </Routes>
       </header>
     </div>
