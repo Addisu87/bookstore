@@ -20,6 +20,7 @@ const AddBook = () => {
       author: '',
       category: 'default',
     };
+    
     dispatch(addBook(newBook));
 
     setInputText({ title: '', author: '' });

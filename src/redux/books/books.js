@@ -8,56 +8,55 @@ const defaultBooks = [
     id: '1',
     title: 'The Hunger Games',
     author: 'Suzanne Collins',
-    category: 'Action',
+    category: 'Action'
   },
   {
     id: '2',
     title: 'Dune',
     author: 'Frank Herbert',
-    category: 'Science Fiction',
+    category: 'Science Fiction'
   },
   {
     id: '3',
     title: 'Capital in the Twenty-First Century',
     author: 'Suzanne Collins',
-    category: 'Economy',
-  },
+    category: 'Economy'
+  }
 ];
 
 // Reducer
-const booksReducer = (state = defaultBooks, action = {}) => {
+const booksReducer = (state = defaultBooks, action) => {
   switch (action.type) {
     case ADD_BOOK:
       return [...state, action.payload];
     case LOAD_BOOK:
       return [...state, action.payload];
     case REMOVE_BOOK:
-      return [...state.filter((book) => book.id !== action.payload)];
+      return state.filter((book) => book.id !== action.payload);
     default:
       return state;
   }
 };
 
 // Action Creators
-
 export function addBook(newBook) {
   return {
     type: ADD_BOOK,
-    payload: newBook,
+    payload: newBook
   };
 }
 
 export function loadBook(book) {
   return {
     type: LOAD_BOOK,
-    payload: book,
+    payload: book
   };
 }
 
 export function removeBook(id) {
   return {
     type: REMOVE_BOOK,
-    payload: id,
+    payload: id
   };
 }
 
