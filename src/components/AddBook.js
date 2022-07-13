@@ -9,6 +9,8 @@ const AddBook = () => {
     author: '',
   });
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,12 +24,11 @@ const AddBook = () => {
     category: 'default',
   };
 
-  const dispatch = useDispatch();
-  const handleAdd = () => {
+  const handleAddBook = () => {
     dispatch(addBook(newBook));
   };
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     setInputText({
       ...inputText,
       [e.target.name]: e.target.value,
@@ -35,29 +36,37 @@ const AddBook = () => {
   };
 
   return (
-    <form className="bookForm" onSubmit={handleSubmit}>
-      <input
-        className="input_text"
-        name="title"
-        type="text"
-        placeholder="Book title"
-        value={inputText.title}
-        onChange={handleChange}
-        required
-      />
-      <input
-        className="input_text"
-        name="author"
-        type="text"
-        placeholder="author"
-        value={inputText.author}
-        onChange={handleChange}
-        required
-      />
-      <button type="submit" onClick={handleAdd}>
-        ADD BOOK
-      </button>
-    </form>
+    <div className="submit-form">
+      <form className="form-group" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="form-control"
+          name="title"
+          placeholder="Book title"
+          id="title"
+          value={inputText.title}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="text"
+          className="form-control"
+          name="author"
+          placeholder="author"
+          id="author"
+          value={inputText.author}
+          onChange={handleInputChange}
+          required
+        />
+        <button
+          type="submit"
+          onClick={handleAddBook}
+          className="btn btn-success"
+        >
+          ADD BOOK
+        </button>
+      </form>
+    </div>
   );
 };
 

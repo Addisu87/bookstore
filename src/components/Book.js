@@ -17,36 +17,34 @@ const Book = (props) => {
   return (
     <ul className="bookList">
       <li key={id}>
-        <div className="bookWrapper">
-          <div className="category">{category}</div>
-          <div className="book">
-            <h2 className="title">{title}</h2>
-            <p className="author">{author}</p>
-          </div>
-          <div className="bookActions">
-            <button className="comments" type="button" id={`comments-${id}`}>
-              Comments
-            </button>
-            <button
-              className="remove"
-              type="button"
-              id={`comments-${id}`}
-              onClick={handleRemove}
-            >
-              Remove
-            </button>
-            <button className="edit" type="button" id={`comments-${id}`}>
-              Edit
-            </button>
-          </div>
+        <div className="category">{category}</div>
+        <div className="book">
+          <h2 className="title">{title}</h2>
+          <p className="author">{author}</p>
+        </div>
+        <div className="bookActions">
+          <button className="comments" type="button" id={`comments-${id}`}>
+            Comments
+          </button>
+          <button
+            className="remove"
+            type="button"
+            id={`comments-${id}`}
+            onClick={handleRemove}
+          >
+            Remove
+          </button>
+          <button className="edit" type="button" id={`comments-${id}`}>
+            Edit
+          </button>
+        </div>
 
-          <div className="progress">Progress Icon</div>
+        <div className="progress">Progress Icon</div>
 
-          <div className="updateProgress">
-            <p>Current Chapter</p>
-            <p>Chapter</p>
-            <button type="button">Update Progress</button>
-          </div>
+        <div className="updateProgress">
+          <p>Current Chapter</p>
+          <p>Chapter</p>
+          <button type="button">Update Progress</button>
         </div>
       </li>
     </ul>
