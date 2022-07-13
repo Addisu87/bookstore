@@ -9,21 +9,22 @@ const AddBook = () => {
     author: '',
   });
 
-  const dispatch = useDispatch();
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newBook = {
-      id: uuidv4(),
-      title: '',
-      author: '',
-      category: 'default',
-    };
-    
-    dispatch(addBook(newBook));
-
     setInputText({ title: '', author: '' });
+  };
+
+  const newBook = {
+    id: uuidv4(),
+    title: inputText.title,
+    author: inputText.author,
+    category: 'default',
+  };
+
+  const dispatch = useDispatch();
+  const handleAdd = () => {
+    dispatch(addBook(newBook));
   };
 
   const handleChange = (e) => {
@@ -53,7 +54,9 @@ const AddBook = () => {
         onChange={handleChange}
         required
       />
-      <button type="submit">ADD BOOK</button>
+      <button type="submit" onClick={handleAdd}>
+        ADD BOOK
+      </button>
     </form>
   );
 };
