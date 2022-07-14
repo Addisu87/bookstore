@@ -13,7 +13,7 @@ const BooksList = () => {
           id={book.id}
           category={book.category}
           title={book.title}
-          author={book.author}
+          author={book.author || []}
         />
       ))}
     </>

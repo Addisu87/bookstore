@@ -8,14 +8,11 @@ import {
 } from './books';
 import { ADD_BOOK, REMOVE_BOOK, LOAD_BOOK } from './types';
 
-export const bookFromAPI = createAsyncThunk(
-  LOAD_BOOK,
-  async (book, { dispatch }) => {
-    const response = await getBooks();
-    dispatch(getBooksAPI(response));
-    return response;
-  },
-);
+export const bookFromAPI = createAsyncThunk(LOAD_BOOK, async () => {
+  const response = await getBooks();
+  const books = getBooksAPI(response);
+  return books;
+});
 
 export const addBook = createAsyncThunk(
   ADD_BOOK,

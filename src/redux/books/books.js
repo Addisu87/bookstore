@@ -10,8 +10,8 @@ const booksReducer = (state = initialBooks, action) => {
   switch (type) {
     case ADD_BOOK:
       return [...state, payload];
-    case LOAD_BOOK:
-      return [payload];
+    case `${LOAD_BOOK}/fulfilled`:
+      return payload;
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== payload);
     default:
@@ -21,12 +21,7 @@ const booksReducer = (state = initialBooks, action) => {
 
 // get (load) book from API
 export const getBooks = async () => {
-  const response = await fetch(URL, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-    },
-  });
+  const response = await fetch(URL);
   const booksData = await response.json();
   return booksData;
 };
@@ -38,10 +33,7 @@ export const getBooksAPI = (books) => {
     ...value[0],
     id: key,
   }));
-  return {
-    type: LOAD_BOOK,
-    payload: APIBooks,
-  };
+  return APIBooks;
 };
 
 // add book to the API

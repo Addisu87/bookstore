@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/ThunkFunctions';
 
-const Book = (props) => {
+const Book = ({
+  id, title, author, category,
+}) => {
   const dispatch = useDispatch();
-
-  const {
-    id, title, author, category,
-  } = props;
 
   const handleRemove = () => {
     dispatch(removeBook(id));
@@ -16,7 +14,7 @@ const Book = (props) => {
 
   const complete = Math.floor(Math.random() * 100);
   const percentageComplete = `${complete}%`;
-  const CurrentChapterNumber = `CHAPTER ${Math.floor(complete / 5, 0)}`;
+  const CurrentChapter = `CHAPTER ${Math.floor(complete / 5, 0)}`;
 
   return (
     <ul className="bookList">
@@ -56,7 +54,7 @@ const Book = (props) => {
 
         <div className="chapter-container">
           <p>CURRENT CHAPTER</p>
-          <p>{CurrentChapterNumber}</p>
+          <p>{CurrentChapter}</p>
           <button type="button">UPDATE PROGRESS</button>
         </div>
       </li>
@@ -64,11 +62,11 @@ const Book = (props) => {
   );
 };
 
+export default Book;
+
 Book.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };
-
-export default Book;
