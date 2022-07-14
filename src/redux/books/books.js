@@ -20,7 +20,7 @@ const booksReducer = (state = initialBooks, action) => {
 };
 
 // get (load) book from API
-export const getBooks = async () => {
+const getBooks = async () => {
   const response = await fetch(URL);
   const booksData = await response.json();
   return booksData;
@@ -28,7 +28,7 @@ export const getBooks = async () => {
 
 // Action Creators
 // get action creator
-export const getBooksAPI = (books) => {
+const getBooksAPI = (books) => {
   const APIBooks = Object.entries(books).map(([key, value]) => ({
     ...value[0],
     id: key,
@@ -37,7 +37,7 @@ export const getBooksAPI = (books) => {
 };
 
 // add book to the API
-export const postBook = async (book) => {
+const postBook = async (book) => {
   const response = await fetch(URL, {
     method: 'POST',
     headers: {
@@ -49,15 +49,19 @@ export const postBook = async (book) => {
 };
 
 // action creator for add new book
-export const addNewBook = (newBook) => ({
+const addNewBook = (newBook) => ({
   type: ADD_BOOK,
   newBook,
 });
 
 // action creator for remove new book
-export const removeOneBook = (id) => ({
+const removeOneBook = (id) => ({
   type: REMOVE_BOOK,
   id,
 });
 
 export default booksReducer;
+
+export {
+  getBooks, getBooksAPI, postBook, addNewBook, removeOneBook,
+};
