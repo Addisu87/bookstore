@@ -4,11 +4,11 @@ import categoriesReducer from './categories/categories';
 
 const rootReducer = combineReducers({
   books: booksReducer,
-  categories: categoriesReducer
+  categories: categoriesReducer,
 });
 
 const store = configureStore({
-  reducer: rootReducer
+  reducer: rootReducer,
 });
 
 export default store;

@@ -7,7 +7,7 @@ import { addBook } from '../redux/books/ThunkFunctions';
 const AddBook = () => {
   const [inputText, setInputText] = useState({
     title: '',
-    author: ''
+    author: '',
   });
 
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const AddBook = () => {
     id: uuidv4(),
     title: inputText.title.value,
     author: inputText.author.value,
-    category: 'Fiction'
+    category: 'Fiction',
   };
 
   const handleAddBook = () => {
@@ -32,43 +32,41 @@ const AddBook = () => {
   const handleInputChange = (e) => {
     setInputText({
       ...inputText,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
-    <>
-      <FormContainer>
-        <Title>Add new book</Title>
-        <Form onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            name="title"
-            placeholder="Book title"
-            id="title"
-            value={inputText.title}
-            onChange={handleInputChange}
-            required
-          />
-          <Input
-            type="text"
-            name="author"
-            placeholder="Author"
-            id="author"
-            value={inputText.author}
-            onChange={handleInputChange}
-            required
-          />
-          <Button
-            type="submit"
-            onClick={handleAddBook}
-            className="btn btn-success"
-          >
-            ADD BOOK
-          </Button>
-        </Form>
-      </FormContainer>
-    </>
+    <FormContainer>
+      <Title>Add new book</Title>
+      <Form onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          name="title"
+          placeholder="Book title"
+          id="title"
+          value={inputText.title}
+          onChange={handleInputChange}
+          required
+        />
+        <Input
+          type="text"
+          name="author"
+          placeholder="Author"
+          id="author"
+          value={inputText.author}
+          onChange={handleInputChange}
+          required
+        />
+        <Button
+          type="submit"
+          onClick={handleAddBook}
+          className="btn btn-success"
+        >
+          ADD BOOK
+        </Button>
+      </Form>
+    </FormContainer>
   );
 };
 
