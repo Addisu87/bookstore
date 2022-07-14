@@ -1,9 +1,5 @@
-import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ADD_BOOK, REMOVE_BOOK, LOAD_BOOK } from './actions';
-
-const URL =
-  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Ay8zFgyIf64kPiLrslqJ/books';
+import URL from './ApiPath';
+import { ADD_BOOK, REMOVE_BOOK, LOAD_BOOK } from './types';
 
 // initial state books
 const initialBooks = [];
@@ -23,65 +19,53 @@ const booksReducer = (state = initialBooks, action) => {
   }
 };
 
+// get (load) book from API
+export const getBooks = async () => {
+  const response = await fetch(URL, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+    },
+  });
+  const booksData = await response.json();
+  return booksData;
+};
+
 // Action Creators
-
-// get (load) book
-export const loadBook = createAsyncThunk('LOAD_BOOK ', async (dispatch) => {
-  const response = await axios.get(URL);
-  const books = Object.keys(response.data).map((bookId) => ({
-    item_id: bookId,
-    ...response.data[bookId][0]
+// get action creator
+export const getBooksAPI = (books) => {
+  const APIBooks = Object.entries(books).map(([key, value]) => ({
+    ...value[0],
+    id: key,
   }));
-  dispatch({ type: LOAD_BOOK, payLoad: [...books] });
-});
-
-// POST method implementation:
+  return {
+    type: LOAD_BOOK,
+    payload: APIBooks,
+  };
+};
 
 // add book to the API
 export const postBook = async (book) => {
   const response = await fetch(URL, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(book)
+    body: JSON.stringify(book),
   });
   return response;
 };
 
+// action creator for add new book
 export const addNewBook = (newBook) => ({
   type: ADD_BOOK,
-  newBook
+  newBook,
 });
 
-export const addBook = createAsyncThunk(
-  'ADD_BOOK',
-  async (newBook, { dispatch }) => {
-    const response = await postBook(newBook);
-    dispatch(addNewBook({ id: newBook.item_id, ...newBook }));
-    return response;
-  }
-);
-
-// remove book from the API
+// action creator for remove new book
 export const removeOneBook = (id) => ({
   type: REMOVE_BOOK,
-  id
+  id,
 });
-
-export const removeBook = createAsyncThunk(
-  'REMOVE_BOOK',
-  async (id, dispatch) => {
-    const response = await fetch(`${URL}/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ item_id: id })
-    });
-    dispatch(removeOneBook(id));
-    return response;
-  }
-);
 
 export default booksReducer;

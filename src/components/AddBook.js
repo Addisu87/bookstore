@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/books';
+import { addBook } from '../redux/books/ThunkFunctions';
 
 const AddBook = () => {
   const [inputText, setInputText] = useState({
     title: '',
-    author: ''
+    author: '',
   });
 
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const AddBook = () => {
     id: uuidv4(),
     title: inputText.title.value,
     author: inputText.author.value,
-    category: 'Fiction'
+    category: 'Fiction',
   };
 
   const handleAddBook = () => {
@@ -31,7 +31,7 @@ const AddBook = () => {
   const handleInputChange = (e) => {
     setInputText({
       ...inputText,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 

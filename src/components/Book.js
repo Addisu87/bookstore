@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+import { removeBook } from '../redux/books/ThunkFunctions';
 
 const Book = (props) => {
   const dispatch = useDispatch();
@@ -13,6 +13,10 @@ const Book = (props) => {
   const handleRemove = () => {
     dispatch(removeBook(id));
   };
+
+  const complete = Math.floor(Math.random() * 100);
+  const percentageComplete = `${complete}%`;
+  const CurrentChapterNumber = `CHAPTER ${Math.floor(complete / 5, 0)}`;
 
   return (
     <ul className="bookList">
@@ -39,12 +43,21 @@ const Book = (props) => {
           </button>
         </div>
 
-        <div className="progress">Progress Icon</div>
+        <div className="progress-container">
+          <div className="circular-progress-container">
+            <div className="circular-progress" />
+          </div>
+          <div className="progress-statistics">
+            <p className="percent-complete">{percentageComplete}</p>
+            <p className="completed">Completed</p>
+          </div>
+          <div className="progress-divider" />
+        </div>
 
-        <div className="updateProgress">
-          <p>Current Chapter</p>
-          <p>Chapter</p>
-          <button type="button">Update Progress</button>
+        <div className="chapter-container">
+          <p>CURRENT CHAPTER</p>
+          <p>{CurrentChapterNumber}</p>
+          <button type="button">UPDATE PROGRESS</button>
         </div>
       </li>
     </ul>
