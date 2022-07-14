@@ -6,7 +6,7 @@ import { addBook } from '../redux/books/books';
 const AddBook = () => {
   const [inputText, setInputText] = useState({
     title: '',
-    author: '',
+    author: ''
   });
 
   const dispatch = useDispatch();
@@ -19,9 +19,9 @@ const AddBook = () => {
 
   const newBook = {
     id: uuidv4(),
-    title: inputText.title,
-    author: inputText.author,
-    category: 'default',
+    title: inputText.title.value,
+    author: inputText.author.value,
+    category: 'Fiction'
   };
 
   const handleAddBook = () => {
@@ -31,7 +31,7 @@ const AddBook = () => {
   const handleInputChange = (e) => {
     setInputText({
       ...inputText,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 

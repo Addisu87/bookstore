@@ -1,18 +1,22 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import thunk from 'redux-thunk';
-import booksReducer from './books/books';
+import booksReducer, { loadBook } from './books/books';
 import categoriesReducer from './categories/categories';
+
+const preloadedState = {
+  books: [],
+  categories: [],
+};
 
 const rootReducer = combineReducers({
   books: booksReducer,
-  categories: categoriesReducer
+  categories: categoriesReducer,
 });
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      thunk
-    })
+  preloadedState,
 });
+
+store.dispatch(loadBook());
+
 export default store;
