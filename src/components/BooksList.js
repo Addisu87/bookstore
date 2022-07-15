@@ -7,15 +7,13 @@ const BooksList = () => {
 
   return (
     <>
-      {books.map(({
-        id, title, author, category,
-      }) => (
+      {books.map((book) => (
         <Book
-          key={id}
-          id={id}
-          category={category}
-          title={title}
-          author={author}
+          key={book.id}
+          id={book.id}
+          category={book.category}
+          title={book.title}
+          author={book.author}
         />
       ))}
     </>

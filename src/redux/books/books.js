@@ -37,13 +37,17 @@ const getBooksAPI = (books) => {
 };
 
 // add book to the API
-const postBook = async (book) => {
+const postBook = async ({
+  id, title, author, category,
+}) => {
   const response = await fetch(URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(book),
+    body: JSON.stringify({
+      item_id: id, title, author, category,
+    }),
   });
   return response;
 };
@@ -51,13 +55,13 @@ const postBook = async (book) => {
 // action creator for add new book
 const addNewBook = (newBook) => ({
   type: ADD_BOOK,
-  newBook,
+  payload: newBook,
 });
 
 // action creator for remove new book
 const removeOneBook = (id) => ({
   type: REMOVE_BOOK,
-  id,
+  payload: id,
 });
 
 export default booksReducer;

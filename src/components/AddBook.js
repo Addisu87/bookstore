@@ -20,9 +20,9 @@ const AddBook = () => {
 
   const newBook = {
     id: uuidv4(),
-    title: inputText.title.value,
-    author: inputText.author.value,
-    category: 'Fiction',
+    title: inputText.title,
+    author: inputText.author,
+    category: 'default',
   };
 
   const handleAddBook = () => {

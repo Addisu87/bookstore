@@ -6,7 +6,7 @@ import {
   postBook,
   removeOneBook,
 } from './books';
-import { ADD_BOOK, REMOVE_BOOK, LOAD_BOOK } from './types';
+import { LOAD_BOOK, REMOVEASYNC, AddASYNC } from './types';
 
 const bookFromAPI = createAsyncThunk(LOAD_BOOK, async () => {
   const response = await getBooks();
@@ -14,14 +14,14 @@ const bookFromAPI = createAsyncThunk(LOAD_BOOK, async () => {
   return books;
 });
 
-const addBook = createAsyncThunk(ADD_BOOK, async (newBook, { dispatch }) => {
+const addBook = createAsyncThunk(AddASYNC, async (newBook, { dispatch }) => {
   const response = await postBook(newBook);
-  dispatch(addNewBook({ id: newBook.item_id, ...newBook }));
+  dispatch(addNewBook({ ...newBook }));
   return response;
 });
 
 // remove book from the API
-const removeBook = createAsyncThunk(REMOVE_BOOK, async (id, { dispatch }) => {
+const removeBook = createAsyncThunk(REMOVEASYNC, async (id, { dispatch }) => {
   const response = await fetch(`${URL}/${id}`, {
     method: 'DELETE',
     headers: {
