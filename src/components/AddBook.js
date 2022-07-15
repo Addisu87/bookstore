@@ -85,10 +85,10 @@ const FormContainer = styled.section`
 `;
 
 const Title = styled.h2`
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--montserrat);
   font-size: 1rem;
   font-weight: bold;
-  color: #888888;
+  color: var(--mid-gray);
   margin-bottom: 6px;
 `;
 
@@ -120,8 +120,8 @@ const Button = styled.button`
   margin-top: 12px;
   margin-inline: auto;
   padding: 0.4rem 2rem;
-  background-color: #0290ff;
-  font-family: 'Roboto Slab', serif;
+  background-color: var(--blue);
+  font-family: var(--roboto);
   font-weight: bold;
   font-size: 0.6rem;
   border-radius: 3px;

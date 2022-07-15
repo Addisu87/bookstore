@@ -1,18 +1,51 @@
-:root {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:root {
   --pale-grey: #f5f6fa;
   --white-three: rgba(0, 0, 0, 0.05);
+  --blue: #0290ff;
+  --white: white;
+  --light-gray: #fafafa;
+  --light-blue: #4386bf;
+  --mid-gray: #888;
+  --montserrat: 'Montserrat', sans-serif;
+  --roboto: 'Roboto', sans-serif;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
+
+button,
+input {
+  appearance: none;
+  border: none;
+}
+
+body {
+  max-width: 1400px;
+  margin-inline: auto;
 }
 
 .App {
-  width: 1400px;
-  height: 89.62rem;
-  padding: 9.313rem 3.75rem 7.688rem 6.25rem;
-  background-color: var(--pale-grey);
-}
-
-.panel-bg {
-  width: 87.5rem;
-  height: 68.563rem;
+  width: 100%;
   margin: 0 2.5rem 4.063rem 0;
   padding: 0 0 49.625rem;
   border-radius: 4px;
