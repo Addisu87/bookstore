@@ -12,7 +12,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://addisubookstore.netlify.app/books)
+[Live Demo Link](https://addisubookstore.netlify.app)
 
 ## Getting Started
 
