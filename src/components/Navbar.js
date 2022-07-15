@@ -119,7 +119,7 @@ const UserIcon = styled(FaUser)`
   margin: 10px;
   width: 20px;
   height: 20px;
-  color: white;
+  color: var(--blue);
   @media screen and (min-width: 768px) {
     color: var(--blue);
   }

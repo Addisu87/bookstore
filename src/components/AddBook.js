@@ -96,13 +96,14 @@ const Form = styled.form`
   width: 100%;
   text-align: center;
   margin-inline: auto;
+  margin-bottom: 1rem;
   @media screen and (min-width: 768px) {
     text-align: left;
   }
 `;
 
 const Input = styled.input`
-  width: 80%;
+  width: 90%;
   border: 1px solid #e8e8e8;
   padding: 2px 8px;
   margin: 4px;
@@ -116,8 +117,6 @@ const Input = styled.input`
 const Button = styled.button`
   outline: none;
   border: none;
-  display: block;
-  margin-top: 12px;
   margin-inline: auto;
   padding: 0.4rem 2rem;
   background-color: var(--blue);

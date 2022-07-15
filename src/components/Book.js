@@ -18,19 +18,21 @@ const Book = ({
   const isDesktop = useWindowSize();
 
   const Completed = Math.floor(Math.random() * 100);
-  const progress = `${Completed}%`;
   const CurrentChapter = `CHAPTER ${Math.floor(Completed / 5, 0)}`;
 
+  const Progress = Math.floor(Math.random() * 100 + 1);
+
   return (
-    <BookInfoContainer>
-      <BookList>
-        <ListItem key={id}>
+    <BookList>
+      <ListItem key={id}>
+        <BookInfoContainer>
           <Category>{category}</Category>
           <Title>{title}</Title>
           <Author>{author}</Author>
+
           <BookOptions>
             <li>
-              <BookOption type="button">Comments </BookOption>
+              <BookOption type="button">Comments</BookOption>
             </li>
             <li>
               <BookOption type="button" onClick={handleRemove}>
@@ -43,32 +45,36 @@ const Book = ({
               </BookOption>
             </li>
           </BookOptions>
+        </BookInfoContainer>
 
-          <BookProgressContainer>
-            <CircularProgressBar
-              size={60}
-              animationSmooth="1s ease-out"
-              colorCircle="#f1f1f1"
-              colorSlice="#0290ff"
-              percent={progress}
-              number={!isDesktop}
-            />
-            {isDesktop && (
-              <ProgressNumContainer>
-                <ProgressStatistics>{progress}</ProgressStatistics>
-                <ProgressCompleted>Completed</ProgressCompleted>
-              </ProgressNumContainer>
-            )}
-          </BookProgressContainer>
+        <BookProgressContainer>
+          <CircularProgressBar
+            size={60}
+            animationSmooth="1s ease-out"
+            colorCircle="#e6e6e6"
+            linearGradient={['yellow', '#ff0000']}
+            round
+            percent={Progress}
+            number={!isDesktop}
+          />
+          {isDesktop && (
+            <ProgressNumContainer>
+              <ProgressStatistics>
+                {Progress}
+                %
+              </ProgressStatistics>
+              <ProgressCompleted>Completed</ProgressCompleted>
+            </ProgressNumContainer>
+          )}
+        </BookProgressContainer>
 
-          <ChapterContainer>
-            <ChapterLegend>CURRENT CHAPTER</ChapterLegend>
-            <Chapter>{CurrentChapter}</Chapter>
-            <UpdateProgressBtn type="button">UPDATE PROGRESS</UpdateProgressBtn>
-          </ChapterContainer>
-        </ListItem>
-      </BookList>
-    </BookInfoContainer>
+        <ChapterContainer>
+          <ChapterLegend>CURRENT CHAPTER</ChapterLegend>
+          <Chapter>{CurrentChapter}</Chapter>
+          <UpdateProgressBtn type="button">UPDATE PROGRESS</UpdateProgressBtn>
+        </ChapterContainer>
+      </ListItem>
+    </BookList>
   );
 };
 
@@ -81,22 +87,16 @@ Book.propTypes = {
   id: PropTypes.string.isRequired,
 };
 
-const BookInfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
 const BookList = styled.ul`
   list-style: none;
   width: 90%;
   margin: 20px auto;
-  max-height: 50vh;
-  min-height: 50vh;
+  max-height: 20vh;
+  min-height: 20vh;
   overflow-y: scroll;
   @media screen and (min-width: 768px) {
-    max-height: 60vh;
-    min-height: 60vh;
+    max-height: 40vh;
+    min-height: 40vh;
   }
 `;
 
@@ -114,6 +114,12 @@ const ListItem = styled.li`
   @media screen and (min-width: 768px) {
     grid-template-columns: 2fr 1fr 2fr;
   }
+`;
+
+const BookInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 const Category = styled.span`
@@ -174,6 +180,7 @@ const BookProgressContainer = styled.div`
   align-items: center;
   gap: 10px;
   @media screen and (min-width: 768px) {
+    font-size: 0.8rem;
   }
 `;
 
