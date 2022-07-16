@@ -92,9 +92,9 @@ const BookList = styled.ul`
   list-style: none;
   width: 90%;
   margin: 20px auto;
-  min-height: 20vh;
+  min-height: 40vh;
   @media screen and (min-width: 768px) {
-    min-height: 20vh;
+    min-height: 30vh;
   }
 `;
 
