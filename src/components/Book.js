@@ -17,9 +17,6 @@ const Book = ({
 
   const isDesktop = useWindowSize();
 
-  const Completed = Math.floor(Math.random() * 100);
-  const CurrentChapter = `CHAPTER ${Math.floor(Completed / 5, 0)}`;
-
   const Progress = Math.floor(Math.random() * 100 + 1);
 
   return (
@@ -70,7 +67,11 @@ const Book = ({
 
         <ChapterContainer>
           <ChapterLegend>CURRENT CHAPTER</ChapterLegend>
-          <Chapter>{CurrentChapter}</Chapter>
+          <Chapter>
+            {' '}
+            Chapter
+            {Progress}
+          </Chapter>
           <UpdateProgressBtn type="button">UPDATE PROGRESS</UpdateProgressBtn>
         </ChapterContainer>
       </ListItem>

@@ -46,7 +46,10 @@ const postBook = async ({
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      item_id: id, title, author, category,
+      id,
+      title,
+      author,
+      category,
     }),
   });
   return response;
