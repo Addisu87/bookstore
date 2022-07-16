@@ -6,9 +6,7 @@ import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/ThunkFunctions';
 import useWindowSize from './useWindowSize';
 
-const Book = ({
-  id, title, author, category,
-}) => {
+const Book = ({ id, title, author, category }) => {
   const dispatch = useDispatch();
 
   const handleRemove = () => {
@@ -56,10 +54,7 @@ const Book = ({
           />
           {isDesktop && (
             <ProgressNumContainer>
-              <ProgressStatistics>
-                {Progress}
-                %
-              </ProgressStatistics>
+              <ProgressStatistics>{Progress}%</ProgressStatistics>
               <ProgressCompleted>Completed</ProgressCompleted>
             </ProgressNumContainer>
           )}
@@ -85,19 +80,16 @@ Book.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 const BookList = styled.ul`
   list-style: none;
   width: 90%;
   margin: 20px auto;
-  max-height: 20vh;
-  min-height: 20vh;
-  overflow-y: scroll;
+  min-height: 30vh;
   @media screen and (min-width: 768px) {
-    max-height: 40vh;
-    min-height: 40vh;
+    min-height: 20vh;
   }
 `;
 
