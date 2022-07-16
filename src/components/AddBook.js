@@ -7,7 +7,7 @@ import { addBook } from '../redux/books/ThunkFunctions';
 const AddBook = () => {
   const [inputText, setInputText] = useState({
     title: '',
-    author: '',
+    author: ''
   });
 
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const AddBook = () => {
     item_id: uuidv4(),
     title: inputText.title,
     author: inputText.author,
-    category: 'Fiction',
+    category: 'Fiction'
   };
 
   const handleAddBook = () => {
@@ -32,7 +32,7 @@ const AddBook = () => {
   const handleInputChange = (e) => {
     setInputText({
       ...inputText,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
@@ -118,7 +118,7 @@ const Button = styled.button`
   outline: none;
   border: none;
   margin-inline: auto;
-  padding: 0.4rem 2rem;
+  padding: 0.2rem 1rem;
   background-color: var(--blue);
   font-family: var(--roboto);
   font-weight: bold;
@@ -131,7 +131,6 @@ const Button = styled.button`
     transform: scale(1.1);
   }
   @media screen and (min-width: 768px) {
-    margin-top: 30px;
     font-size: 0.9rem;
     padding-inline: 3rem;
   }
