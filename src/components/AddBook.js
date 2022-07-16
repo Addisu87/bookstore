@@ -7,7 +7,7 @@ import { addBook } from '../redux/books/ThunkFunctions';
 const AddBook = () => {
   const [inputText, setInputText] = useState({
     title: '',
-    author: ''
+    author: '',
   });
 
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const AddBook = () => {
     item_id: uuidv4(),
     title: inputText.title,
     author: inputText.author,
-    category: 'Fiction'
+    category: 'Fiction',
   };
 
   const handleAddBook = () => {
@@ -32,7 +32,7 @@ const AddBook = () => {
   const handleInputChange = (e) => {
     setInputText({
       ...inputText,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
