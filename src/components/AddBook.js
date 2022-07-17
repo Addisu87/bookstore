@@ -18,6 +18,7 @@ const AddBook = () => {
     setInputText({ title: '', author: '' });
   };
 
+  // New book
   const newBook = {
     item_id: uuidv4(),
     title: inputText.title,

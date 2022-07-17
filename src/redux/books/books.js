@@ -26,8 +26,7 @@ const getBooks = async () => {
   return booksData;
 };
 
-// Action Creators
-// get action creator
+// return an array of the main object's [key, value] pairs
 const getBooksAPI = (books) => {
   const APIBooks = Object.entries(books).map(([key, value]) => ({
     ...value[0],
@@ -55,6 +54,8 @@ const postBook = async ({
   return response;
 };
 
+// Action Creators
+// get action creator
 // action creator for add new book
 const addNewBook = (newBook) => ({
   type: ADD_BOOK,
