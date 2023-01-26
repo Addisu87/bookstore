@@ -27,7 +27,7 @@ const Navbar = () => {
 
       <NavLinks className={isOpen ? 'open' : null}>
         <LinkItem>
-          <NavigationLink to="/books" onClick={handleClose}>
+          <NavigationLink to="/" onClick={handleClose}>
             Books
           </NavigationLink>
           <NavigationLink to="/categories" onClick={handleClose}>

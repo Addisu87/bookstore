@@ -11,7 +11,7 @@ function App() {
       <header className="panel-bg">
         <Navbar />
         <Routes>
-          <Route path="/books" element={<Books />} />
+          <Route path="/" element={<Books />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="*" element={<NotMatch />} />
         </Routes>
